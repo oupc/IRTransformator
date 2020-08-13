@@ -8,5 +8,14 @@
     <artifactId>IRTransformator</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.anaptecs.jeaf.owalibs</groupId>
+            <artifactId>org.eclipse.jdt.core</artifactId>
+            <version>4.3.1</version>
+            <type>pom</type>
+        </dependency>
+    </dependencies>
+
 
 </project>
