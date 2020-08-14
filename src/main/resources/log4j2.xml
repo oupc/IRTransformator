@@ -1,0 +1,20 @@
+<Configuration status="WARN" monitorInterval="30">
+    <Properties>
+        <Property name="logFilePath">log</Property>
+        <Property name="logFileName">log.log</Property>
+    </Properties>
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout
+                    pattern="[%date{yyyy-MM-dd HH:mm:ss.SSS}][%thread][%level][%class][%line] : %message%n"/>
+        </Console>
+        <File name="log" fileName="${logFilePath}/${logFileName}" append="false">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} %-5level %class{36} %L %M - %msg%xEx%n"/>
+        </File>
+    </Appenders>
+    <Loggers>
+        <Root level="all">
+            <AppenderRef ref="Console"/>
+        </Root>
+    </Loggers>
+</Configuration>
