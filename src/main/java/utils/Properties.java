@@ -11,6 +11,7 @@ public class Properties implements PropertiesKey{
     public void Init(){
         map.put(JAVAFILES,new ArrayList<>());
         map.put(JARFILES,new ArrayList<>());
+        map.put(COMPILATIONUNITS,new HashMap<>());
     }
 
     public static Object getProperty(String string){
