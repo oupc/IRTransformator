@@ -9,5 +9,4 @@ public class Expression extends Statement{
     Operator operator;
     Variable leftVariable;
     Variable rightVariable;
-
 }
