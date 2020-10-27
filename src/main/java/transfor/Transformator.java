@@ -1,9 +1,8 @@
 package transfor;
 
-import node.ClassDeclaration;
-import node.Function;
-import node.IRStatement;
+import node.*;
 import org.eclipse.jdt.core.dom.*;
+import utils.ASTUtils;
 import utils.Config;
 import utils.PropertiesKey;
 
@@ -25,6 +24,21 @@ public class Transformator {
                         classDeclaration.functions.add(function);
                         currentFunction = function;
                         return true;
+                    }
+
+                    @Override
+                    public boolean visit(VariableDeclarationFragment node) {
+                        IRExpression irExpression = new IRExpression((Statement) node.getParent());
+                        irExpression.setLeftVariable(new Variable(node.getName().getIdentifier(),node.resolveBinding()));
+                        irExpression.setExpression(ASTUtils.getRight(node.getInitializer()));
+                        return false;
+                    }
+
+                    @Override
+                    public boolean visit(Assignment node) {
+                        Variable variable = ASTUtils.getVariable(node.getLeftHandSide());
+                        return super.visit(node);
+
 
                     }
 

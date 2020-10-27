@@ -46,4 +46,14 @@ public class Function {
         this.methodDeclaration = methodDeclaration;
     }
 
+    public Variable newVarable(){
+        return new Variable(count++);
+    }
+
+    public IRExpression newExpression(){
+        IRExpression irExpression = new IRExpression(new Variable());
+        statements.add(irExpression);
+        return irExpression;
+    }
+
 }

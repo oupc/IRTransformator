@@ -1,11 +1,18 @@
 package utils;
 
+import lombok.Getter;
+import lombok.Setter;
 import node.FileNode;
+import node.Function;
 
 import java.io.File;
-import java.util.List;
 
 public class Config extends Properties {
+
+    @Getter
+    @Setter
+    private static Function currentFunction;
+
 
     @Override
     public void Init() {
